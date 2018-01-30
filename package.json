@@ -1,0 +1,32 @@
+{
+  "name": "eliftechtest",
+  "version": "1.0.0",
+  "description": "Test task",
+  "main": "js/main.js",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-install": "^2.1.0",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "lodash": "^4.17.4",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndriiSiuta/ElifTechTest.git"
+  },
+  "author": "AndriiSiuta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndriiSiuta/ElifTechTest/issues"
+  },
+  "homepage": "https://github.com/AndriiSiuta/ElifTechTest#readme"
+}
