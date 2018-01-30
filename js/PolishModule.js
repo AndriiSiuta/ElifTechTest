@@ -10,8 +10,6 @@ class PolishСalculation {
             } else {
                 let lastElem = stack.pop(); // 1
                 let previousElem = stack.pop(); // 2
-                console.log('LAST->', lastElem);
-                console.log('PREV->', previousElem);
                 switch(stringElem) {
                     case '+':
                         stack.push(lastElem - previousElem);
