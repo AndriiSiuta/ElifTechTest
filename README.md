@@ -1,2 +1,3 @@
-# ElifTechTest
-Test task
+1. npm install.
+2. npm run build.
+3. index.html - open;
