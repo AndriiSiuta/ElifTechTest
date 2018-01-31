@@ -22,16 +22,14 @@ class PolishСalculation {
                         if(last == 0) {
                             stack.push(42);
                         } else {
-                            let result = Math.floor(prev % last);
-                            stack.push(result);
+                            stack.push(Math.floor(prev % last));
                         }
                         break;
                     case '/':
                         if(last == 0) {
                             stack.push(42);
                         } else {
-                            let result = Math.floor(prev / last);
-                            stack.push(result);
+                            stack.push(Math.floor(prev / last));
                         }
                         break;
                     default:
