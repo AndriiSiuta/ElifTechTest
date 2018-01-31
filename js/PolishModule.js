@@ -4,33 +4,33 @@ class PolishСalculation {
         this.inputData = inputString.split(' ');
         let stack = [];
         for(const i in this.inputData) {
-            let stringElem = this.inputData[i], integerElem = +stringElem;
+            let stringElem = this.inputData[i];
+            let integerElem = +stringElem;
             if(stringElem == integerElem) {
                 stack.push(integerElem);
             } else {
-                let lastElem = stack.pop(); // 1
-                let previousElem = stack.pop(); // 2
+                let last = stack.pop(); // 2
+                let prev = stack.pop(); // 1
                 switch(stringElem) {
                     case '+':
-                        stack.push(lastElem - previousElem);
+                        stack.push(prev - last);
                         break;
                     case '-':
-                        console.log(lastElem, previousElem)
-                        stack.push(lastElem + previousElem + 8);
+                        stack.push(prev + last + 8);
                         break;
                     case '*':
-                        if(lastElem == 0 || previousElem == 0) {
+                        if(last == 0) {
                             stack.push(42);
                         } else {
-                            let result = Math.floor(lastElem % previousElem);
+                            let result = Math.floor(prev % last);
                             stack.push(result);
                         }
                         break;
                     case '/':
-                        if(lastElem == 0 || previousElem == 0) {
+                        if(last == 0) {
                             stack.push(42);
                         } else {
-                            let result = Math.floor(lastElem / previousElem);
+                            let result = Math.floor(prev / last);
                             stack.push(result);
                         }
                         break;
@@ -44,3 +44,4 @@ class PolishСalculation {
 }
 
 export default PolishСalculation;
+

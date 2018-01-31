@@ -80,15 +80,13 @@ const { id, expressions } = HttpModule.get('https://www.eliftech.com/school-task
 
 let polishTransform = new __WEBPACK_IMPORTED_MODULE_1__PolishModule__["a" /* default */]();
 let result = [];
-let digitFromStack = 0;
-console.log('EXP->', expressions);
 
 for(let i = 0; i < expressions.length; i++) {
+    let digitFromStack = 0;
     digitFromStack += polishTransform.calculations(expressions[i]);
     result.push(digitFromStack);
 }
 
-console.log('ID->', id)
 const postData = {
     id,
     "results": result
@@ -96,7 +94,7 @@ const postData = {
 
 HttpModule.post('https://www.eliftech.com/school-task', postData);
 
-
+//ToDo false passed after post
 
 
 
@@ -150,32 +148,33 @@ class PolishСalculation {
         this.inputData = inputString.split(' ');
         let stack = [];
         for(const i in this.inputData) {
-            let stringElem = this.inputData[i], integerElem = +stringElem;
+            let stringElem = this.inputData[i];
+            let integerElem = +stringElem;
             if(stringElem == integerElem) {
                 stack.push(integerElem);
             } else {
-                let lastElem = stack.pop(); // 1
-                let previousElem = stack.pop(); // 2
+                let last = stack.pop(); // 2
+                let prev = stack.pop(); // 1
                 switch(stringElem) {
                     case '+':
-                        stack.push();
+                        stack.push(prev - last);
                         break;
                     case '-':
-                        stack.push(previousElem + lastElem + 8);
+                        stack.push(prev + last + 8);
                         break;
                     case '*':
-                        if(lastElem == 0 || previousElem == 0) {
+                        if(last == 0) {
                             stack.push(42);
                         } else {
-                            let result = Math.floor(previousElem % lastElem);
+                            let result = Math.floor(prev % last);
                             stack.push(result);
                         }
                         break;
                     case '/':
-                        if(lastElem == 0 || previousElem == 0) {
+                        if(last == 0) {
                             stack.push(42);
                         } else {
-                            let result = Math.floor(previousElem / lastElem);
+                            let result = Math.floor(prev / last);
                             stack.push(result);
                         }
                         break;
@@ -189,6 +188,7 @@ class PolishСalculation {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (PolishСalculation);
+
 
 
 /***/ })

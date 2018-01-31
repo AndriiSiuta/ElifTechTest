@@ -7,15 +7,13 @@ const { id, expressions } = HttpModule.get('https://www.eliftech.com/school-task
 
 let polishTransform = new PolishCalc();
 let result = [];
-let digitFromStack = 0;
-console.log('EXP->', expressions);
 
 for(let i = 0; i < expressions.length; i++) {
+    let digitFromStack = 0;
     digitFromStack += polishTransform.calculations(expressions[i]);
     result.push(digitFromStack);
 }
 
-console.log('ID->', id)
 const postData = {
     id,
     "results": result
